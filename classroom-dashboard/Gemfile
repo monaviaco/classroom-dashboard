@@ -81,7 +81,7 @@ group :development do
   ####################
 
   # Use Dotenv for environment variables
-  gem 'dotenv', '~> 2.2.1'
+  #gem 'dotenv', '~> 2.2.1'
   ####################
 end
 

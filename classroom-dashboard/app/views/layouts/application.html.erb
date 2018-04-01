@@ -19,18 +19,18 @@
         </div>
 
         <ul class="nav navbar-nav">
-          <li><%=link_to "Sign Up", new_user_registration_path %></li>
-          <% if user_signed_in? %>
-            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to "Log In", new_user_registration_path%></li>
-          <% end %>
+        <% if current_user %>
+            Signed in as <strong><%= current_user.name %></strong>!
+            <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+            <!--<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>-->
+        <% end %>
+
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "Add Course Section", new_section_path %></li>
-          <% end %>
+          <li><%= link_to "Add Course Section", new_section_path %></li>
         </ul>
       </div>
     </nav>
