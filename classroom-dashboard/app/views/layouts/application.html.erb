@@ -23,15 +23,18 @@
             Signed in as <strong><%= current_user.name %></strong>!
             <%= link_to "Sign out", signout_path, id: "sign_out" %>
         <% else %>
-            <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+            <%= link_to "Sign in with Google", login_path %>
             <!--<%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>-->
         <% end %>
 
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
           <li><%= link_to "Add Course Section", new_section_path %></li>
+          <% end %>
         </ul>
+
       </div>
     </nav>
 
